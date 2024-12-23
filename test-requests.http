@@ -1,0 +1,48 @@
+### Exchange Managed Identity access token for app access token
+
+POST https://login.microsoftonline.com/13051989-33ba-4ced-b4a4-b56aac699948/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+&client_id=83d59817-87fd-4a0f-a6b9-09c04d126368
+&scope=https://management.azure.com/.default
+&client_assertion={{CLIENT_ASSERTION}}
+
+### Get access token for app registration using client_secret
+
+POST https://login.microsoftonline.com/13051989-33ba-4ced-b4a4-b56aac699948/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id=7517c46b-0685-46d5-a07a-8d92b416f43b
+&scope=api://AzureADTokenExchange/.default
+&client_secret={{CLIENT_SECRET}}
+
+### Exchange app token for app access token (not supported)
+
+POST https://login.microsoftonline.com/13051989-33ba-4ced-b4a4-b56aac699948/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+&client_id=efd3dfdd-1eea-4603-a93a-3d9f48ccd67c
+&scope=https://management.azure.com/.default
+&client_assertion={{CLIENT_ASSERTION}}
+
+### Exchange Managed Identity access token for app access token in ANOTHER tenant
+
+POST https://login.microsoftonline.com/dd74924a-88ce-421a-ac87-00fc9dbe4baf/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+&client_id=83d59817-87fd-4a0f-a6b9-09c04d126368
+&scope=https://management.azure.com/.default
+&client_assertion={{CLIENT_ASSERTION}}
+
+### ARM request cross-tenant using multi-tenant application
+
+GET https://management.azure.com/subscriptions/ef7f8652-abc5-4bf7-8d04-570c0b66eede/resourceGroups/?api-version=2024-08-01
+Authorization: Bearer {{BEARER_TOKEN}}
+
