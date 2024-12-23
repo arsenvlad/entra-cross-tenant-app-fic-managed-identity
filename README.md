@@ -8,6 +8,14 @@ Public Preview announcement blog December 2024
 Public Preview documentation
 <https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity>
 
+## Scenarios
+
+![Diagram 1](./images/diagram1.png)
+
+![Diagram 2](./images/diagram2.png)
+
+![Diagram 3](./images/diagram3.png)
+
 ## Create resources for testing
 
 Create VM to use for testing
