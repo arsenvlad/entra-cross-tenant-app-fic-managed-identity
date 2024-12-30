@@ -5,7 +5,7 @@ Content-Type: application/x-www-form-urlencoded
 
 grant_type=client_credentials
 &client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-&client_id=83d59817-87fd-4a0f-a6b9-09c04d126368
+&client_id=7143e629-51e2-4320-bfc5-c51d7bda2b3c
 &scope=https://management.azure.com/.default
 &client_assertion={{CLIENT_ASSERTION}}
 
@@ -37,7 +37,7 @@ Content-Type: application/x-www-form-urlencoded
 
 grant_type=client_credentials
 &client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-&client_id=83d59817-87fd-4a0f-a6b9-09c04d126368
+&client_id=b605e49d-8f04-4fa8-90e6-498c2209ed6b
 &scope=https://management.azure.com/.default
 &client_assertion={{CLIENT_ASSERTION}}
 

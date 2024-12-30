@@ -37,7 +37,7 @@ az vm identity assign --resource-group rg-entra-fic --name vm-entra-fic --identi
 SSH into the VM and get managed identity access token for ARM and separately for credentials exchange
 
 ```bash
-ssh azureuser@20.1.170.114 -i ~/.ssh/id_rsa
+ssh azureuser@52.232.207.174 -i ~/.ssh/id_rsa
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2023-11-15&resource=https://management.azure.com/' -H Metadata:true | jq
 ```
 
@@ -45,14 +45,14 @@ Create new multi-tenant Entra application registration and service principal
 
 ```bash
 az ad app create --display-name app-entra-fic --sign-in-audience AzureADMultipleOrgs
-az ad sp create --id 83d59817-87fd-4a0f-a6b9-09c04d126368
+az ad sp create --id 7143e629-51e2-4320-bfc5-c51d7bda2b3c
 ```
 
 Create federated identity credential on the application
 
 ```bash
-az ad app federated-credential create --id 83d59817-87fd-4a0f-a6b9-09c04d126368 --parameters fic.json
-az ad app federated-credential list --id 83d59817-87fd-4a0f-a6b9-09c04d126368 -o json
+az ad app federated-credential create --id 7143e629-51e2-4320-bfc5-c51d7bda2b3c --parameters fic-settings.json
+az ad app federated-credential list --id 7143e629-51e2-4320-bfc5-c51d7bda2b3c -o json
 ```
 
 SSH into the VM and get managed identity access token for credentials exchange
@@ -67,12 +67,13 @@ Decoded in <https://jwt.ms>
 
 ## Review Failure Modes
 
+* AADSTS700236: Entra ID tokens issued by issuer <https://login.microsoftonline.com/13051989-33ba-4ced-b4a4-b56aac699948/v2.0> may not be used for federated identity credential flows for applications or managed identities registered in this tenant.
+* AADSTS700222: AAD-issued tokens may not be used for federated identity flows. (which is the same error as in the past)
+* AADSTS700226: Only MSI tokens may be used as Federated Identity Credentials for AAD issuer. (when trying to use tokens from app registration to another app registration)
+
 * AADSTS700227: Forbidden token audience when setting to issuer like <https://sts.windows.net/>
 * AADSTS7002121: No matching federated identity record found for presented assertion audience <https://management.azure.com/>
 * AADSTS700211: No matching federated identity record found for presented assertion issuer <https://login.microsoftonline.com/13051989-33ba-4ced-b4a4-b56aac699948/v2.0>
-* AADSTS700222: AAD-issued tokens may not be used for federated identity flows. (which is the same error as in the past)
-* AADSTS700226: Only MSI tokens may be used as Federated Identity Credentials for AAD issuer. (when trying to use tokens from app registration to another app registration)
-* AADSTS700236: Entra ID tokens issued by issuer <https://login.microsoftonline.com/13051989-33ba-4ced-b4a4-b56aac699948/v2.0> may not be used for federated identity credential flows for applications or managed identities registered in this tenant.
 
 As of December 23, 2024, the documentation lists the limitation of having AAD-issued FIC on managed identities
 <https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation#supported-scenarios>

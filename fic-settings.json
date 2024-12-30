@@ -1,7 +1,7 @@
 {
     "name": "fic-uami-entra",
     "issuer": "https://login.microsoftonline.com/13051989-33ba-4ced-b4a4-b56aac699948/v2.0",
-    "subject": "0af883f4-2f16-470f-8118-1a2ba4699fbb",
+    "subject": "63cd1950-f005-48c7-b7cd-8254a40a9518",
     "description": "Managed Identity Trust",
     "audiences": [
         "api://AzureADTokenExchange"
