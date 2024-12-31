@@ -37,7 +37,7 @@ Content-Type: application/x-www-form-urlencoded
 
 grant_type=client_credentials
 &client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-&client_id=b605e49d-8f04-4fa8-90e6-498c2209ed6b
+&client_id=615ec85d-787d-4107-b4e6-d0a10bdbb28b
 &scope=https://management.azure.com/.default
 &client_assertion={{CLIENT_ASSERTION}}
 
