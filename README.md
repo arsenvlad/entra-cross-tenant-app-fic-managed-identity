@@ -8,9 +8,7 @@ Public Preview announcement blog December 2024
 Public Preview documentation
 <https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity>
 
-## Video
-
-[Entra corss-tenant secret-less trust using Managed Identity as Federated Identity Credential on multi-tenant app registration](https://youtu.be/2OrNykYLmOc?si=cWjI1RfPg6FUpFDt)
+My video walking through this experiment [Entra corss-tenant secret-free trust using Managed Identity as Federated Identity Credential on multi-tenant app registration](https://arsenvlad.medium.com/entra-cross-tenant-trust-using-managed-identity-secret-free-approach-9c5bcad1b0fd)
 
 ## Scenarios
 
